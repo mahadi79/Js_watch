@@ -21,6 +21,11 @@
                     <div class="digit" id="seconds">00</div>
                     <h3>Seconds</h3>
                 </div>
+
+                <div class="time">
+                    <div class="digit" id="ampm">00</div>
+                    
+                </div>
             </div>
         </div>
        
@@ -28,6 +33,7 @@
             let hours = document.getElementById("hours");
             let minutes = document.getElementById("minutes");
             let seconds = document.getElementById("seconds");
+            let ampm = document.getElementById("ampm");
             
           setInterval( function(){
             let date = new Date();
@@ -35,11 +41,42 @@
             let h = date.getHours();
             let m = date.getMinutes();
             let s = date.getSeconds();
+
+            let session = "AM";
+
             
+            
+            // to add 0 before seconds           
+            s = s.toString();
+           ss = s.length;
+            if( ss == 1){
+                s = "0" + s;
+            }
+            // to add 0 before minutes
+                m = m.toString();
+                mm = m.length;
+                if(mm == 1){
+                   m = "0" + m;
+                }
+
+            // to add 0 before hours
+            h = h.toString();
+                hh = h.length;
+                if(hh == 1){
+                   h = "0" + h;
+                }
+
+                if(h > 12){
+               h = h - 12;
+               session = "PM"
+            } else if(h == 00){
+                h = 12;
+            }
               
             hours.innerHTML = h;
             minutes.innerHTML = m;
             seconds.innerHTML = s;
+            ampm.innerHTML = session;
             
             
           }, 1000);
