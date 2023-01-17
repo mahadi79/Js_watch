@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title> Digital Watch</title>
+        <link href="style.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="watch">
+            <div class="watch_design">
+                <div class="time">
+                    <div class="digit" id="hours">12</div>
+                    <h3>Hours</h3>
+                </div>
+                
+                <div class="time">
+                    <div class="digit" id="minutes">00</div>
+                    <h3>Minutes</h3>
+                </div>
+                
+                <div class="time">
+                    <div class="digit" id="seconds">00</div>
+                    <h3>Seconds</h3>
+                </div>
+            </div>
+        </div>
+       
+        <script>
+            let hours = document.getElementById("hours");
+            let minutes = document.getElementById("minutes");
+            let seconds = document.getElementById("seconds");
+            
+          setInterval( function(){
+            let date = new Date();
+            
+            let h = date.getHours();
+            let m = date.getMinutes();
+            let s = date.getSeconds();
+            
+              
+            hours.innerHTML = h;
+            minutes.innerHTML = m;
+            seconds.innerHTML = s;
+            
+            
+          }, 1000);
+            
+        </script>
+       
+    </body>
+
+</html>
